@@ -9,7 +9,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--textcolor); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +30,6 @@
 #app-content h1 {
     font-size: 24px;
     text-align: center;
-    color: var(--elementcolor);
 }
 #open-saved-recipes-btn{
     background-color: #007261;
