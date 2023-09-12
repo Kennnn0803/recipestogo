@@ -29,8 +29,8 @@ window.addEventListener('load', function () {
         // Remove the splash screen from the DOM (optional)
         setTimeout(function () {
             document.getElementById('splash-screen').remove();
-        }, 500); // Remove after a short delay to allow for the fade-out transition
-    }, 2000); // Simulated 2-second delay (adjust as needed)
+        }, 1000); // Remove after a short delay to allow for the fade-out transition
+    }, 3000); // Simulated 2-second delay (adjust as needed)
 });
 
 // Get meal list that matches with the ingredients
