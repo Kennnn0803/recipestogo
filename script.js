@@ -27,9 +27,6 @@ function getMealList() {
                             <div class="meal-name">
                                 <h3>${meal.strMeal}</h3>
                                 <a href="#" class="recipe-btn">Get Recipe</a>
-                                <button class="save-recipe-btn btn" data-id="${meal.idMeal}">
-                                    Save Recipe
-                                </button>
                             </div>
                         </div>
                     `;
@@ -56,7 +53,6 @@ function getMealRecipe(e) {
 }
 
 // Create a modal
-f// Create a modal
 function mealRecipeModal(meal) {
     let html = `
         <h2 class="recipe-title">${meal.strMeal}</h2>
