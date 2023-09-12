@@ -51,25 +51,26 @@ function getMealRecipe(e) {
             .then(data => mealRecipeModal(data.meals[0]));
     }
 }
-// Add this code to your existing JavaScript file
-
-// Get the "Open Saved Recipes" button element
-const openSavedRecipesBtn = document.getElementById('open-saved-recipes-btn');
-
-// Attach a click event listener to the button
-openSavedRecipesBtn.addEventListener('click', openSavedRecipesPopup);
-
-// Function to open the popup and display saved recipes
 function openSavedRecipesPopup() {
-    // Here, you can create a modal or a new window to display saved recipes.
-    // You can also use a library like Bootstrap or a custom CSS modal for better styling.
-    
-    // For a simple alert box (replace this with your preferred UI):
-    alert("Here are your saved recipes:\n\n(Implement your saved recipes display here)");
+    // Retrieve saved recipes from localStorage
+    const savedRecipes = JSON.parse(localStorage.getItem('savedRecipes'));
 
-    // You can retrieve and display saved recipes from localStorage in the modal or new window.
-    // Refer to the previous response for how to retrieve saved recipes from localStorage.
+    if (savedRecipes && savedRecipes.length > 0) {
+        // Create a modal or a new window to display saved recipes
+        // You can use your preferred UI library or custom code for this purpose
+        // Here, we'll use a simple alert for demonstration
+
+        let savedRecipesText = 'Your saved recipes:\n\n';
+        savedRecipes.forEach(recipe => {
+            savedRecipesText += `Name: ${recipe.name}\nCategory: ${recipe.category}\n\n`;
+        });
+
+        alert(savedRecipesText);
+    } else {
+        alert('You have no saved recipes yet.');
+    }
 }
+
 
 // Create a modal
 function mealRecipeModal(meal) {
@@ -86,11 +87,41 @@ function mealRecipeModal(meal) {
         <div class="recipe-link">
             <a href="${meal.strYoutube}" target="_blank">Video Tutorial Here!</a>
         </div>
-        <button class="save-recipe-btn btn" data-id="${meal.idMeal}">
-            Save Recipe
-        </button>
     `;
     mealDetailsContent.innerHTML = html;
     mealDetailsContent.parentElement.classList.add('showRecipe');
-}
+    
+        // Add a Save Recipe button inside the modal
+        html += `
+            <button class="save-recipe-btn btn" data-id="${meal.idMeal}">
+                Save Recipe
+            </button>
+        `;
+    
+        // Save the recipe to localStorage when the "Save Recipe" button is clicked
+        const saveRecipeBtn = document.querySelector('.save-recipe-btn');
+        saveRecipeBtn.addEventListener('click', () => {
+            // Retrieve existing saved recipes from localStorage or initialize an empty array
+            const savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
+    
+            // Add the current recipe to the savedRecipes array
+            savedRecipes.push({
+                id: meal.idMeal,
+                name: meal.strMeal,
+                category: meal.strCategory,
+                instructions: meal.strInstructions,
+                image: meal.strMealThumb,
+                video: meal.strYoutube,
+            });
+    
+            // Save the updated savedRecipes array back to localStorage
+            localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
+    
+            alert('Recipe saved successfully!');
+        });
+    
+        // ... (rest of your code)
+    }
+    
+
 
