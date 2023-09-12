@@ -58,28 +58,37 @@ function getMealRecipe(e) {
 
 
 // Function to open the popup and display saved recipes
-function openSavedRecipesPopup() {
+function openSavedRecipesModal() {
     // Retrieve saved recipes from localStorage
     const savedRecipes = JSON.parse(localStorage.getItem('savedRecipes'));
 
+    // Get the modal and links elements
+    const modal = document.getElementById('modal');
+    const savedRecipesModalLinks = document.getElementById('saved-recipes-modal-links');
+
+    // Clear previous links in the modal
+    savedRecipesModalLinks.innerHTML = '';
+
     if (savedRecipes && savedRecipes.length > 0) {
-        let savedRecipesText = 'Your saved recipes:\n\n';
+        // Create clickable links for saved recipes
         savedRecipes.forEach(recipe => {
-            savedRecipesText += `Name: ${recipe.name}\nCategory: ${recipe.category}\n`;
-            
-            // Check if the recipe has a video link
-            if (recipe.video) {
-                savedRecipesText += `Video Link: <a href="${recipe.video}" target="_blank">${recipe.video}</a>\n`;
-            }
-            
-            savedRecipesText += '\n';
+            const recipeLink = document.createElement('a');
+            recipeLink.href = recipe.video; // Use the video link as the href
+            recipeLink.target = '_blank'; // Open link in a new tab
+            recipeLink.textContent = recipe.name; // Display recipe name as the link text
+            savedRecipesModalLinks.appendChild(recipeLink);
+            savedRecipesModalLinks.appendChild(document.createElement('br')); // Add line break
         });
 
-        alert(savedRecipesText);
+        // Display the modal
+        modal.style.display = 'block';
     } else {
         alert('You have no saved recipes yet.');
     }
 }
+
+// Event listener for the "Open Saved Recipes" button
+openSavedRecipesBtn.addEventListener('click', openSavedRecipesModal);
 
 
 
