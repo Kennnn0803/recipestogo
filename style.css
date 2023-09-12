@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
-.body{
-   background-color: #00844F;
+.container{
+    color: var(--backgroundcolor);
 }
 *{
     padding: 0;
@@ -9,8 +9,9 @@
     box-sizing: border-box;
 }
 :root{
-    --tenne-tawny: #3E953B;
-    --tenne-tawny-dark: #007261;
+    --textcolor: #3E953B;
+    --elementcolor: #007261;
+    --backgroundcolor: #00844F;
 }
 body{
     font-weight: 300;
@@ -65,19 +66,19 @@ body{
     font-size: 1.1rem;
     font-family: inherit;
     outline: 0;
-    border: 1px solid var(--tenne-tawny);
-    color: var(--tenne-tawny);
+    border: 1px solid var(--textcolor);
+    color: var(--textcolor);
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;
 }
 .search-control::placeholder{
-    color: var(--tenne-tawny);
+    color: var(--textcolor);
 }
 .search-btn{
     width: 55px;
     height: 55px;
     font-size: 1.8rem;
-    background: var(--tenne-tawny);
+    background: var(--textcolor);
     color: #fff;
     border: none;
     border-top-right-radius: 2rem;
@@ -89,7 +90,7 @@ body{
     -o-transition: all 0.4s linear;
 }
 .search-btn:hover{
-    background: var(--tenne-tawny-dark);
+    background: var(--elementcolor);
 }
 .meal-result{
     margin-top: 4rem;
@@ -120,7 +121,7 @@ body{
 .recipe-btn{
     text-decoration: none;
     color: #fff;
-    background: var(--tenne-tawny);
+    background: var(--textcolor);
     font-weight: 500;
     font-size: 1.1rem;
     padding: 0.75rem 0;
@@ -139,7 +140,7 @@ body{
     -o-transition: all 0.4s linear;
 }
 .recipe-btn:hover{
-    background: var(--tenne-tawny-dark);
+    background: var(--elementcolor);
 }
 
 /* meal details */
@@ -153,7 +154,7 @@ body{
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     color: #fff;
-    background: var(--tenne-tawny);
+    background: var(--textcolor);
     border-radius: 1rem;
     -webkit-border-radius: 1rem;
     -moz-border-radius: 1rem;
@@ -215,7 +216,7 @@ body{
 .recipe-category{
     background: #fff;
     font-weight: 600;
-    color: var(--tenne-tawny);
+    color: var(--textcolor);
     display: inline-block;
     padding: 0.2rem 0.5rem;
     border-radius: 0.3rem;
@@ -227,7 +228,7 @@ body{
 .recipe-category{
     background: #fff;
     font-weight: 600;
-    color: var(--tenne-tawny);
+    color: var(--textcolor);
     display: inline-block;
     padding: 0.2rem 0.5rem;
     border-radius: 0.3rem;
@@ -271,7 +272,7 @@ body{
 /*  */
 .notFound{
     grid-template-columns: 1fr!important;
-    color: var(--tenne-tawny);
+    color: var(--textcolor);
     font-size: 1.8rem;
     font-weight: 600;
     width: 100%;
