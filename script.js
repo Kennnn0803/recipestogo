@@ -56,6 +56,7 @@ function getMealRecipe(e) {
     }
 }
 
+
 // Function to open the popup and display saved recipes
 function openSavedRecipesPopup() {
     // Retrieve saved recipes from localStorage
@@ -68,7 +69,7 @@ function openSavedRecipesPopup() {
             
             // Check if the recipe has a video link
             if (recipe.video) {
-                savedRecipesText += `Video Link: <a href="${recipe.video}" target=_blank">${recipe.video}</a>\n`;
+                savedRecipesText += `Video Link: <a href="${recipe.video}" target="_blank">${recipe.video}</a>\n`;
             }
             
             savedRecipesText += '\n';
@@ -79,6 +80,7 @@ function openSavedRecipesPopup() {
         alert('You have no saved recipes yet.');
     }
 }
+
 
 // Create a modal
 function mealRecipeModal(meal) {
