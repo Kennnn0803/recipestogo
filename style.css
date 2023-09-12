@@ -21,12 +21,10 @@
     max-height: 80%;
 }
 
-/* Hide the app content initially */
 #app-content {
     display: none;
 }
 
-/* Add more styles for your app content */
 #app-content h1 {
     font-size: 24px;
     text-align: center;
@@ -70,8 +68,6 @@ body{
     font-size: 2rem;
     margin-bottom: 1rem;
 }
-
-/*  */
 .container{
     min-height: 100vh;
 }
@@ -132,8 +128,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* Center vertically */
-    text-align: center; /* Center horizontally */
+    flex-direction: column; 
+    text-align: center; 
     margin-top: 4rem;
 }
 #meal{
@@ -184,7 +180,6 @@ body{
     background: var(--elementcolor);
 }
 
-/* meal details */
 .meal-details{
     position: fixed;
     top: 50%;
@@ -219,8 +214,6 @@ body{
     -o-border-radius: 2rem;
 }
 
-
-/* js related */
 .save-recipe-btn {
     background-color: #007261; 
     color: #fff; 
@@ -323,8 +316,6 @@ body{
     opacity: 0.8;
 }
 
-
-/*  */
 .notFound{
     grid-template-columns: 1fr!important;
     color: var(--textcolor);
@@ -334,11 +325,7 @@ body{
 }
 
 
-
-
-
-
-/* Media Queries */
+/* media queries*/
 @media screen and (min-width: 600px){
     .meal-search-box{
         width: 540px;
