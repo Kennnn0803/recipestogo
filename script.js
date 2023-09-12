@@ -62,13 +62,16 @@ function openSavedRecipesPopup() {
     const savedRecipes = JSON.parse(localStorage.getItem('savedRecipes'));
 
     if (savedRecipes && savedRecipes.length > 0) {
-        // Create a modal or a new window to display saved recipes
-        // You can use your preferred UI library or custom code for this purpose
-        // Here, we'll use a simple alert for demonstration
-
         let savedRecipesText = 'Your saved recipes:\n\n';
         savedRecipes.forEach(recipe => {
-            savedRecipesText += `Name: ${recipe.name}\nCategory: ${recipe.category}\n\n`;
+            savedRecipesText += `Name: ${recipe.name}\nCategory: ${recipe.category}\n`;
+            
+            // Check if the recipe has a video link
+            if (recipe.video) {
+                savedRecipesText += `Video Link: ${recipe.video}\n`;
+            }
+            
+            savedRecipesText += '\n';
         });
 
         alert(savedRecipesText);
