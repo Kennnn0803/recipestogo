@@ -71,7 +71,7 @@ function openSavedRecipesPopup() {
             
             // Check if the recipe has a video link
             if (recipe.video) {
-                savedRecipesText += `Video Link: <a href="${recipe.video}" target="_blank">${recipe.video}</a>\n`;
+                savedRecipesText += `Video Link: ${recipe.video}\n`;
             }
             
             savedRecipesText += '\n';
