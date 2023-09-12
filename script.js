@@ -14,6 +14,25 @@ recipeCloseBtn.addEventListener('click', () => {
 // Event listener for the "Open Saved Recipes" button
 openSavedRecipesBtn.addEventListener('click', openSavedRecipesPopup); // Add this line
 
+// splash screen
+window.addEventListener('load', function () {
+    // delay 
+    setTimeout(function () {
+        // Hide the splash screen
+        document.getElementById('splash-screen').style.opacity = '0';
+
+        // Show the app content
+        document.getElementById('app-content').style.display = 'block';
+
+        // Optionally, you can add other initialization code for your app here
+
+        // Remove the splash screen from the DOM (optional)
+        setTimeout(function () {
+            document.getElementById('splash-screen').remove();
+        }, 500); // Remove after a short delay to allow for the fade-out transition
+    }, 2000); // Simulated 2-second delay (adjust as needed)
+});
+
 // Get meal list that matches with the ingredients
 function getMealList() {
     let searchInputTxt = document.getElementById('search-input').value.trim();
