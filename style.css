@@ -94,6 +94,8 @@ body{
 }
 .meal-result{
     margin-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 #meal{
     margin: 2.4rem 0;
