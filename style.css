@@ -3,7 +3,8 @@
 .container{
     color: var(--backgroundcolor);
 }
-.save-recipe-btn{
+
+#open-saved-recipes-btn{
     background-color: #007261;
     color: #fff;
     font-size: 1rem;
@@ -13,7 +14,7 @@
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-.save-recipe-btn:hover{
+#open-saved-recipes-btn:hover{
     color:var(--elementcolor);
 }
 *{
