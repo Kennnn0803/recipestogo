@@ -82,6 +82,7 @@ function openSavedRecipesPopup() {
 }
 
 
+
 // Create a modal
 function mealRecipeModal(meal) {
     let html = `
@@ -131,3 +132,5 @@ function mealRecipeModal(meal) {
         alert('Recipe saved successfully!');
     });
 }
+
+
