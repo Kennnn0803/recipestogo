@@ -56,6 +56,7 @@ function getMealRecipe(e) {
 }
 
 // Create a modal
+f// Create a modal
 function mealRecipeModal(meal) {
     let html = `
         <h2 class="recipe-title">${meal.strMeal}</h2>
@@ -70,7 +71,11 @@ function mealRecipeModal(meal) {
         <div class="recipe-link">
             <a href="${meal.strYoutube}" target="_blank">Video Tutorial Here!</a>
         </div>
+        <button class="save-recipe-btn btn" data-id="${meal.idMeal}">
+            Save Recipe
+        </button>
     `;
     mealDetailsContent.innerHTML = html;
     mealDetailsContent.parentElement.classList.add('showRecipe');
 }
+
