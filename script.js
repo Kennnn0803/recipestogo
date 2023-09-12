@@ -64,13 +64,6 @@ function openSavedRecipesModal() {
     // Retrieve saved recipes from localStorage
     const savedRecipes = JSON.parse(localStorage.getItem('savedRecipes'));
 
-    // Get the modal and links elements
-    const modal = document.getElementById('saved-recipes-modal');
-    const savedRecipesModalLinks = document.getElementById('saved-recipes-modal-links');
-
-    // Clear previous links in the modal
-    savedRecipesModalLinks.innerHTML = '';
-
     if (savedRecipes && savedRecipes.length > 0) {
         // Create clickable links for saved recipes
         savedRecipes.forEach(recipe => {
@@ -88,6 +81,9 @@ function openSavedRecipesModal() {
         alert('You have no saved recipes yet.');
     }
 }
+
+// Event listener for the "Open Saved Recipes" button
+openSavedRecipesBtn.addEventListener('click', openSavedRecipesModal);
 
 
 
