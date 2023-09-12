@@ -2,6 +2,7 @@ const searchBtn = document.getElementById('search-btn');
 const mealList = document.getElementById('meal');
 const mealDetailsContent = document.querySelector('.meal-details-content');
 const recipeCloseBtn = document.getElementById('recipe-close-btn');
+const openSavedRecipesBtn = document.getElementById('open-saved-recipes-btn'); // Add this line
 
 // Event listeners
 searchBtn.addEventListener('click', getMealList);
@@ -9,6 +10,9 @@ mealList.addEventListener('click', getMealRecipe);
 recipeCloseBtn.addEventListener('click', () => {
     mealDetailsContent.parentElement.classList.remove('showRecipe');
 });
+
+// Event listener for the "Open Saved Recipes" button
+openSavedRecipesBtn.addEventListener('click', openSavedRecipesPopup); // Add this line
 
 // Get meal list that matches with the ingredients
 function getMealList() {
@@ -51,6 +55,8 @@ function getMealRecipe(e) {
             .then(data => mealRecipeModal(data.meals[0]));
     }
 }
+
+// Function to open the popup and display saved recipes
 function openSavedRecipesPopup() {
     // Retrieve saved recipes from localStorage
     const savedRecipes = JSON.parse(localStorage.getItem('savedRecipes'));
@@ -71,7 +77,6 @@ function openSavedRecipesPopup() {
     }
 }
 
-
 // Create a modal
 function mealRecipeModal(meal) {
     let html = `
@@ -88,40 +93,36 @@ function mealRecipeModal(meal) {
             <a href="${meal.strYoutube}" target="_blank">Video Tutorial Here!</a>
         </div>
     `;
+
+    // Add a Save Recipe button inside the modal
+    html += `
+        <button class="save-recipe-btn btn" data-id="${meal.idMeal}">
+            Save Recipe
+        </button>
+    `;
+
     mealDetailsContent.innerHTML = html;
     mealDetailsContent.parentElement.classList.add('showRecipe');
-    
-        // Add a Save Recipe button inside the modal
-        html += `
-            <button class="save-recipe-btn btn" data-id="${meal.idMeal}">
-                Save Recipe
-            </button>
-        `;
-    
-        // Save the recipe to localStorage when the "Save Recipe" button is clicked
-        const saveRecipeBtn = document.querySelector('.save-recipe-btn');
-        saveRecipeBtn.addEventListener('click', () => {
-            // Retrieve existing saved recipes from localStorage or initialize an empty array
-            const savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
-    
-            // Add the current recipe to the savedRecipes array
-            savedRecipes.push({
-                id: meal.idMeal,
-                name: meal.strMeal,
-                category: meal.strCategory,
-                instructions: meal.strInstructions,
-                image: meal.strMealThumb,
-                video: meal.strYoutube,
-            });
-    
-            // Save the updated savedRecipes array back to localStorage
-            localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
-    
-            alert('Recipe saved successfully!');
+
+    // Save the recipe to localStorage when the "Save Recipe" button is clicked
+    const saveRecipeBtn = document.querySelector('.save-recipe-btn');
+    saveRecipeBtn.addEventListener('click', () => {
+        // Retrieve existing saved recipes from localStorage or initialize an empty array
+        const savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
+
+        // Add the current recipe to the savedRecipes array
+        savedRecipes.push({
+            id: meal.idMeal,
+            name: meal.strMeal,
+            category: meal.strCategory,
+            instructions: meal.strInstructions,
+            image: meal.strMealThumb,
+            video: meal.strYoutube,
         });
-    
-        // ... (rest of your code)
-    }
-    
 
+        // Save the updated savedRecipes array back to localStorage
+        localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
 
+        alert('Recipe saved successfully!');
+    });
+}
