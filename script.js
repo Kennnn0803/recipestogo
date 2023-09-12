@@ -88,7 +88,34 @@ function openSavedRecipesModal() {
 }
 
 // Event listener for the "Open Saved Recipes" button
-openSavedRecipesBtn.addEventListener('click', openSavedRecipesModal);
+openSavedRecipesBtn.addEventListener('click', () => {
+    // Retrieve saved recipes from localStorage
+    const savedRecipes = JSON.parse(localStorage.getItem('savedRecipes'));
+
+    // Get the modal and links elements
+    const modal = document.getElementById('modal');
+    const savedRecipesModalLinks = document.getElementById('saved-recipes-modal-links');
+
+    // Clear previous links in the modal
+    savedRecipesModalLinks.innerHTML = '';
+
+    if (savedRecipes && savedRecipes.length > 0) {
+        // Create clickable links for saved recipes
+        savedRecipes.forEach(recipe => {
+            const recipeLink = document.createElement('a');
+            recipeLink.href = recipe.video; // Use the video link as the href
+            recipeLink.target = '_blank'; // Open link in a new tab
+            recipeLink.textContent = recipe.name; // Display recipe name as the link text
+            savedRecipesModalLinks.appendChild(recipeLink);
+            savedRecipesModalLinks.appendChild(document.createElement('br')); // Add line break
+        });
+
+        // Display the modal
+        modal.style.display = 'block';
+    } else {
+        alert('You have no saved recipes yet.');
+    }
+});
 
 
 
