@@ -56,6 +56,8 @@ function getMealRecipe(e) {
     }
 }
 
+// Event listener for the "Open Saved Recipes" button
+openSavedRecipesBtn.addEventListener('click', openSavedRecipesModal);
 
 // Function to open the popup and display saved recipes
 function openSavedRecipesModal() {
@@ -87,8 +89,6 @@ function openSavedRecipesModal() {
     }
 }
 
-// Event listener for the "Open Saved Recipes" button
-openSavedRecipesBtn.addEventListener('click', openSavedRecipesModal);
 
 
 // Create a modal
