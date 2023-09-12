@@ -51,6 +51,25 @@ function getMealRecipe(e) {
             .then(data => mealRecipeModal(data.meals[0]));
     }
 }
+// Add this code to your existing JavaScript file
+
+// Get the "Open Saved Recipes" button element
+const openSavedRecipesBtn = document.getElementById('open-saved-recipes-btn');
+
+// Attach a click event listener to the button
+openSavedRecipesBtn.addEventListener('click', openSavedRecipesPopup);
+
+// Function to open the popup and display saved recipes
+function openSavedRecipesPopup() {
+    // Here, you can create a modal or a new window to display saved recipes.
+    // You can also use a library like Bootstrap or a custom CSS modal for better styling.
+    
+    // For a simple alert box (replace this with your preferred UI):
+    alert("Here are your saved recipes:\n\n(Implement your saved recipes display here)");
+
+    // You can retrieve and display saved recipes from localStorage in the modal or new window.
+    // Refer to the previous response for how to retrieve saved recipes from localStorage.
+}
 
 // Create a modal
 function mealRecipeModal(meal) {
