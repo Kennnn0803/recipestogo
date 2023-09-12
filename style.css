@@ -185,6 +185,20 @@ body{
 
 
 /* js related */
+.save-recipe-btn {
+    background-color: #007261; /* Background color */
+    color: #fff; /* Text color */
+    font-size: 1rem; /* Font size */
+    padding: 0.5rem 1rem; /* Padding (top/bottom, left/right) */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Cursor style on hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.save-recipe-btn:hover {
+    background-color: #00574B;
+}
 .showRecipe{
     display: block;
 }
